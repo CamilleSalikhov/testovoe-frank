@@ -23,4 +23,15 @@ input {
 
 .controls {
     margin-left: auto;
+    padding: 0;
+    display: flex;
+    flex-direction: row;
+}
+
+
+@media (max-width:768px) {
+    .controls button {
+         padding: 0;
+          
+    }
 }
