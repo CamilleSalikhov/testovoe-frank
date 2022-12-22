@@ -75,6 +75,10 @@ const BlockThree = () => {
         var gigaBytes = marker * marker * marker;  
         var teraBytes = marker * marker * marker * marker; 
     
+         
+        if(bytes === undefined) {
+            return
+        } 
         
         if(bytes < kiloBytes) return bytes + " Bytes";
         
@@ -84,6 +88,7 @@ const BlockThree = () => {
         
         else return(bytes / gigaBytes).toFixed(decimal) + " GB";
     }
+
 
 
     const background = draggedOver? '#d7385e' : 'white'

@@ -3,6 +3,7 @@ import todoReducer from "./reducers/todoReducer";
 import { legacy_createStore as createStore, combineReducers, compose, applyMiddleware } from "redux";
 import thunk from 'redux-thunk';
 import imageReducer from "./reducers/imageReducer";
+import menuReducer from "./reducers/menuReducer";
 
 
 
@@ -12,7 +13,8 @@ import imageReducer from "./reducers/imageReducer";
 const rootReducer = combineReducers(
     {table: tableReducer,
     todos: todoReducer,
-    image:imageReducer
+    image:imageReducer,
+    menuColor: menuReducer
 }
 );
 //creating a store
