@@ -36,7 +36,7 @@ const BlockThree = () => {
     const handleOnDrop = (e) => {
         e.preventDefault();
         const currentFile = e.dataTransfer.files[0];
-        console.log(currentFile);
+         
         setDraggedOver(false);
          
         const objUrl = URL.createObjectURL(currentFile);
@@ -53,16 +53,29 @@ const BlockThree = () => {
         ))
 
 
-    }
+    };
 
     const handleChange = (e) => {
+        const currentFile = e.target.files[0];
          
-    }
+        const objUrl = URL.createObjectURL(currentFile);
+         
+        dispatch(addImage(
+            {
+                blob:objUrl,
+                type:currentFile.type,
+                name:currentFile.name,
+                size:currentFile.size
+
+            }
+        ))
+         
+    };
 
 
     const handleClick = (e) => {
         inputRef.current.click()
-    }
+    };
 
     
 
@@ -113,7 +126,7 @@ const BlockThree = () => {
             style = {{'backgroundColor': `${background}`}}
             >
                 <div className='textThree'>Перенесите файлы</div>
-                <input ref={inputRef} hidden onChange={handleChange} type="file"></input>
+                <input onChange = {handleChange} ref={inputRef} hidden   type="file"></input>
                 <button onClick={handleClick} type="button">Добавить файл</button>
             </div>
         </div>

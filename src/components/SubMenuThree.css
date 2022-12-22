@@ -1,0 +1,15 @@
+.subThree {
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+     flex: 1;
+}
+
+ 
+.subThree div {
+    margin-bottom: 3vh;
+}
+
+.subThree p {
+    margin-bottom: 5vh;
+}

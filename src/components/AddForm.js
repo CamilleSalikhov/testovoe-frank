@@ -33,7 +33,7 @@ const AddForm = () => {
         <div className='addFormContainer'>
             <form onSubmit={handleSubmit}>
                 <div className="formItems">
-                <textarea onChange={handleChange} value={textValue} rows="15" cols="15"></textarea>
+                <textarea onChange={handleChange} value={textValue} rows="10" cols="15"></textarea>
                 <button type="sumbit">Добавить</button>
                 </div>
             </form>

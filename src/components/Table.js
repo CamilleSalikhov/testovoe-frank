@@ -4,7 +4,7 @@ import {v4 as uuidv4} from 'uuid'
 
 const Table = ({searchValue}) => {
 
-    const tableState = useSelector(state => state.table)
+    const tableState = useSelector(state => state.table.table)
 
 
     const tableItems = tableState.filter(e => {
@@ -20,7 +20,7 @@ const Table = ({searchValue}) => {
     </tr> )
 
     return(
-        <div>
+        <div className='tableContainer'>
             <table>
           <thead>
             <tr>

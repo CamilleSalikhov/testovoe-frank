@@ -1,0 +1,11 @@
+.subTwo {
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+     flex: 1;
+}
+
+ 
+.subTwo div {
+    margin-bottom: 3vh;
+}

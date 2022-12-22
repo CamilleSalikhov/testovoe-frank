@@ -12,13 +12,15 @@
 
 }
 
-input {
+.controls input {
     margin-left: 6vh;
 }
 
 
 .todoContainer button {
     margin-left: auto;
+    height: 30px;
+     
 }
 
 .controls {

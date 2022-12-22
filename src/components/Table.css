@@ -20,3 +20,6 @@ table {
     background-color: rgb(220, 227, 231);
   }
   
+  .tableContainer {
+    margin-bottom: 3vh;
+  }

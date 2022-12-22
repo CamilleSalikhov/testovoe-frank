@@ -5,6 +5,7 @@
  import SectionTwo from './components/SectionTwo';
  import SectionThree from './components/SectionThree';
 import useMenu from './hooks/use-menu';
+import { Route, Switch, Redirect } from 'react-router-dom';
 
 function App() {
   const [sectionStatus, setSectionStatus, clickHandler] = useMenu();
@@ -18,10 +19,23 @@ function App() {
 
   return (
     <div className="App">
-      <MainMenu clickHandler = {clickHandlerTwo} />
+      <Switch>
+      <Route path = '/:operand'  >
+      <MainMenu type = {'Раздел'} clickHandler = {clickHandlerTwo} />
       {sectionStatus.firstStatus && <SectionOne />}
       {sectionStatus.secondStatus && <SectionTwo />}
       {sectionStatus.thirdStatus && <SectionThree />}
+      </Route>
+      <Route path='/' exact>
+        <Redirect to = '/0' />
+      </Route>
+       
+      <Route path='*'>
+        <div>
+          Страница не найдена
+        </div>
+      </Route>
+      </Switch>
     </div>
   );
 }

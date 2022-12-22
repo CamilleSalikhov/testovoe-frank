@@ -1,25 +1,26 @@
 import './BlockOne.css'
 import Table from './Table';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { selectOption } from '../store/actions/selectOption';
 import { useState } from 'react';
+import { setSearchValue } from '../store/actions/setSearchValue';
 
  
 
 
 const BlockOne = () => {
 
-const [searchValue, setSearchValue] = useState('');
+ const searchValue = useSelector(state => state.table.searchValue);
 
 const dispatch = useDispatch();
 
 const onSelectChange = (e) => {
-    console.log(e.target.value);
     dispatch(selectOption(e.target.value));
+    
 };
 
 const onSearchChange = (e) => {
-    setSearchValue(e.target.value);
+    dispatch(setSearchValue(e.target.value)) ;
 }
 
 
