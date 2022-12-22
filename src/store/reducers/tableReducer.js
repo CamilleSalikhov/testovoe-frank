@@ -4,7 +4,8 @@ import { SEARCH_VALUE } from "../actions/setSearchValue";
 
 const  initialState = {
     table:data,
-    searchValue:''
+    searchValue:'',
+    order: ''
 };
 
 
@@ -14,7 +15,7 @@ function tableReducer(state = initialState, action) {
         case SELECT_OPTION:
             return {
                 ...state,
-                table: action.payload
+                order: action.payload
             }
         case SEARCH_VALUE:
             return {

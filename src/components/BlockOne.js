@@ -37,7 +37,7 @@ const onSearchChange = (e) => {
             </select>
              
             <input onChange={onSearchChange} placeholder='Найти по описанию'  type="search" name="search" value={searchValue} />
-            <Table searchValue={searchValue} />
+            <Table type ='normal' searchValue={searchValue} />
 
         </div>
     )

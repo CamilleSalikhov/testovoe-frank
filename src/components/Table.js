@@ -1,13 +1,21 @@
 import './Table.css';
 import { useSelector } from 'react-redux';
-import {v4 as uuidv4} from 'uuid'
+import {v4 as uuidv4} from 'uuid';
+import changeOrder from './changeOrder';
 
-const Table = ({searchValue}) => {
+const Table = ({searchValue, type}) => {
 
-    const tableState = useSelector(state => state.table.table)
+  //normal onlySelector onlySearch
 
+    const tableState = useSelector(state => state.table.table);
+    const order = useSelector(state => state.table.order);
+    let tableItems = [];
+    let orderedItems = [];
 
-    const tableItems = tableState.filter(e => {
+    if (type === 'normal') {
+      
+      tableItems = changeOrder(tableState, order);
+      orderedItems = tableItems.filter(e => {
 
         return searchValue.toLowerCase() === '' ? e :e.info.toLowerCase().includes(searchValue)
 
@@ -18,6 +26,38 @@ const Table = ({searchValue}) => {
         <td className='selector'>{e.value}</td>
         <td className='info'>{e.info}</td>
     </tr> )
+  
+    } else if (type === 'onlySelector') {
+      
+      tableItems = changeOrder(tableState, order);
+      orderedItems = tableItems.map(e =>
+    <tr key={uuidv4()}>
+       <td>{e.id}</td>
+        <td className='selector'>{e.value}</td>
+        <td className='info'>{e.info}</td>
+    </tr> )
+
+
+    } else if (type === 'onlySearch') {
+      
+      tableItems = [...tableState];
+      orderedItems = tableItems.filter(e => {
+
+        return searchValue.toLowerCase() === '' ? e :e.info.toLowerCase().includes(searchValue)
+
+
+    }).map(e =>
+    <tr key={uuidv4()}>
+       <td>{e.id}</td>
+        <td className='selector'>{e.value}</td>
+        <td className='info'>{e.info}</td>
+    </tr> )
+
+    }
+
+
+
+    
 
     return(
         <div className='tableContainer'>
@@ -30,7 +70,7 @@ const Table = ({searchValue}) => {
             </tr>
           </thead>
           <tbody>
-             {tableItems}
+             {orderedItems}
              
           </tbody>
         </table>

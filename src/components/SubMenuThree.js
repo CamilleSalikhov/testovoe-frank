@@ -11,7 +11,7 @@ const SubMenuThree = () => {
         <div className='subThree'>
             Подменю 3
             <p>{textState}</p>
-            <Table searchValue={searchValue} />
+            <Table type ='onlySearch' searchValue={searchValue} />
         </div>
     )
 

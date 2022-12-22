@@ -23,7 +23,7 @@ const SubMenuOne = () => {
         <div className="subOne">
             <div>
             Подменю 1 
-            <Table searchValue={searchValue} />
+            <Table type ='onlySelector' searchValue={searchValue} />
             {todos}
             </div>  
         </div>
