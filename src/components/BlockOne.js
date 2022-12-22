@@ -20,7 +20,7 @@ const onSelectChange = (e) => {
 };
 
 const onSearchChange = (e) => {
-    dispatch(setSearchValue(e.target.value)) ;
+    dispatch(setSearchValue(e.target.value.toLowerCase())) ;
 }
 
 
